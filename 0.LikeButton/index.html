@@ -1,0 +1,42 @@
+<html>
+
+<head>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+   <div id="root"></div>
+
+   <script type="text/babel">
+      const e = React.createElement;
+
+      // 리액트의 컴포넌트를 불러와 클래스 생성
+      class LikeButton extends React.Component {
+         constructor(props) {
+            super(props);
+            this.state = {
+               liked: false,
+            };
+         }
+
+         // 버튼을 어떻게 표시할지
+         render() {
+            return <button type="submit"
+               onClick={() => {
+                  this.setState({ liked: true })
+               }}>
+               {this.state.liked === true ? 'Liked' : 'Like'}
+            </button>
+            // JSX (JS + XML)
+         }
+      }
+   </script>
+
+   <script type="text/babel">
+      ReactDOM.render(<div><LikeButton /><LikeButton /><LikeButton /><LikeButton /></div>, document.querySelector('#root'));
+   </script>
+</body>
+
+</html>
